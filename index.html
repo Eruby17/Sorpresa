@@ -1,0 +1,1174 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#24143f">
+
+<title>Para Jimena ❄️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: #fff9ff;
+  font-family: 'Quicksand', sans-serif;
+  overflow-x: hidden;
+  background:
+    radial-gradient(
+      ellipse at 50% 75%,
+      #69478e 0%,
+      #332052 45%,
+      #15132f 100%
+    );
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* ESTRELLAS, NIEVE Y ROSAS */
+
+#stars, #snow, #roses {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+#stars { z-index: 0; }
+#snow { z-index: 5; }
+#roses { z-index: 6; }
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: white;
+  animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .12; }
+  to { opacity: 1; }
+}
+
+.snowflake, .rose {
+  position: absolute;
+  top: -50px;
+  animation: falling linear infinite;
+  will-change: transform;
+}
+
+.snowflake {
+  color: white;
+  text-shadow: 0 0 12px #dee4ff;
+}
+
+.rose {
+  filter: drop-shadow(0 5px 8px #160b2980);
+}
+
+@keyframes falling {
+  from {
+    transform:
+      translate3d(0,-45px,0)
+      rotate(-25deg);
+  }
+
+  to {
+    transform:
+      translate3d(var(--drift),115vh,0)
+      rotate(390deg);
+  }
+}
+
+/* LUNA */
+
+.moon {
+  position: fixed;
+  right: 8%;
+  top: 6%;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #fff2d8;
+  box-shadow:
+    0 0 35px #fff3c280,
+    0 0 95px #ddc6ff60;
+  z-index: 0;
+}
+
+.moon::after {
+  content: '';
+  position: absolute;
+  left: 18px;
+  top: -7px;
+  width: 65px;
+  height: 65px;
+  background: #1e1838;
+  border-radius: 50%;
+}
+
+/* CONTENEDOR */
+
+.container {
+  position: relative;
+  z-index: 2;
+  width: min(790px,100%);
+  margin: auto;
+  padding: 60px 18px 80px;
+}
+
+.card {
+  text-align: center;
+  padding: 50px 28px;
+  border-radius: 34px;
+  border: 1px solid #ffffff40;
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+  box-shadow: 0 25px 80px #09051e70;
+}
+
+.small-title {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #e3caff60;
+  border-radius: 50px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #f0dcff;
+}
+
+.ornament {
+  margin: 30px 0;
+  color: #e1ccff;
+  font-size: 24px;
+  letter-spacing: 8px;
+}
+
+/* MENSAJE ROMANTICO */
+
+.message {
+  max-width: 550px;
+  margin: 35px auto;
+  font-family: 'Playfair Display', serif;
+  line-height: 2;
+  font-size: clamp(19px,3vw,25px);
+}
+
+.message strong {
+  color: #ddc0ff;
+  font-weight: 600;
+}
+
+/* TARJETA MUSICAL SIN REVELAR CANCION */
+
+.music-card {
+  max-width: 590px;
+  margin: 38px auto;
+  padding: 30px 20px;
+  border: 1px solid #cba8ff65;
+  border-radius: 28px;
+  background: #150c3480;
+}
+
+/* TOCADISCOS */
+
+.turntable {
+  position: relative;
+  width: 245px;
+  height: 245px;
+  margin: 15px auto 25px;
+  border-radius: 27px;
+  background:
+    linear-gradient(135deg,#8e6bad,#4e366f);
+  box-shadow:
+    0 14px 35px #05041570,
+    inset 0 2px #ffffff65;
+  border: 3px solid #a78fc2;
+}
+
+.vinyl {
+  position: absolute;
+  inset: 25px;
+  border-radius: 50%;
+  background:
+    repeating-radial-gradient(
+      circle,
+      #17121c 0px,
+      #17121c 3px,
+      #343039 4px,
+      #151117 6px
+    );
+  border: 4px solid #0b0a0c;
+  box-shadow: 0 8px 23px #0008;
+  display: grid;
+  place-items: center;
+  animation: spinVinyl 2.3s linear infinite;
+  animation-play-state: paused;
+}
+
+.turntable.playing .vinyl {
+  animation-play-state: running;
+}
+
+.vinyl-label {
+  width: 75px;
+  height: 75px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(130deg,#be91fa,#7347ad);
+  border: 3px solid #e2c6ff;
+  color: white;
+  font-size: 30px;
+  box-shadow: 0 0 0 5px #21172b;
+}
+
+.tonearm {
+  position: absolute;
+  right: 33px;
+  top: 24px;
+  width: 8px;
+  height: 113px;
+  background: linear-gradient(90deg,#e6e6e6,#8b829a);
+  border-radius: 8px;
+  transform: rotate(27deg);
+  transform-origin: top center;
+  box-shadow: 2px 2px 4px #0008;
+}
+
+.tonearm::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -8px;
+  width: 24px;
+  height: 24px;
+  background: #c5b2da;
+  border-radius: 50%;
+  border: 3px solid #79638c;
+}
+
+.tonearm::after {
+  content: '';
+  position: absolute;
+  bottom: -9px;
+  left: -5px;
+  width: 19px;
+  height: 24px;
+  border-radius: 4px;
+  background: #211a2d;
+}
+
+@keyframes spinVinyl {
+  to { transform: rotate(360deg); }
+}
+
+/* GIF ANIMADO */
+
+.gif-panel {
+  max-width: 350px;
+  margin: 22px auto;
+  padding: 10px;
+  background: #ffffff12;
+  border-radius: 18px;
+  border: 1px solid #ffffff30;
+}
+
+.gif-panel img {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* BOTONES */
+
+button {
+  border: 0;
+  padding: 16px 25px;
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+}
+
+button:hover {
+  transform: translateY(-3px);
+}
+
+button:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 4px;
+}
+
+.btn-purple {
+  background: linear-gradient(
+    120deg,
+    #a344f5,
+    #7731db,
+    #5520ac
+  );
+  color: white;
+  box-shadow: 0 8px 28px #8731e980;
+}
+
+.btn-outline {
+  background: #ffffff18;
+  color: white;
+  border: 1px solid #d8b7ff7d;
+}
+
+#musicButton {
+  min-width: 210px;
+  font-size: 16px;
+}
+
+/* PROGRESO DE LA CANCION */
+
+.player-controls {
+  margin: 20px auto;
+}
+
+.progress-bar {
+  width: 100%;
+  margin: 22px 0 5px;
+  accent-color: #ae79f8;
+  cursor: pointer;
+}
+
+.time-row {
+  display: flex;
+  justify-content: space-between;
+  color: #d7c1f4;
+  font-size: 12px;
+}
+
+#musicStatus {
+  color: #e4caff;
+  font-size: 13px;
+  margin-top: 15px;
+}
+
+/* IMAGEN INFERIOR */
+
+.cover-section {
+  max-width: 450px;
+  margin: 48px auto 10px;
+}
+
+.cover-section img {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  margin: auto;
+  border-radius: 22px;
+  border: 3px solid #d8c1f0;
+  box-shadow: 0 15px 40px #09051c85;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 32px auto;
+}
+
+/* FUEGOS ARTIFICIALES */
+
+#fireworks {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 8;
+  pointer-events: none;
+}
+
+/* PANTALLA INICIAL */
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  background:
+    radial-gradient(
+      ellipse at center,
+      #493074,
+      #1d143b 75%
+    );
+  transition: opacity .8s, visibility .8s;
+}
+
+.intro.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.intro-card {
+  width: min(460px,100%);
+  padding: 44px 26px;
+  border-radius: 34px;
+  background: #ffffff0c;
+  border: 1px solid #dbc0ff4f;
+  box-shadow: 0 20px 70px #0e082b55;
+}
+
+.envelope {
+  font-size: 86px;
+  animation: floatEnvelope 2s infinite alternate;
+}
+
+@keyframes floatEnvelope {
+  from {
+    transform: translateY(0) rotate(-5deg);
+  }
+  to {
+    transform: translateY(-15px) rotate(5deg);
+  }
+}
+
+.intro-title {
+  font-family: 'Playfair Display',serif;
+  font-size: clamp(34px,7vw,48px);
+  font-weight: 500;
+  color: #f4e3ff;
+  margin: 25px 0 18px;
+}
+
+.intro-text {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #e5d5fa;
+  margin-bottom: 30px;
+}
+
+@media(max-width:500px) {
+  .container {
+    padding: 30px 12px 60px;
+  }
+
+  .card {
+    padding: 35px 13px;
+    border-radius: 25px;
+  }
+
+  .music-card {
+    padding: 24px 12px;
+  }
+
+  .intro-card {
+    padding: 35px 20px;
+  }
+
+  .moon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .moon::after {
+    width: 45px;
+    height: 45px;
+    left: 12px;
+    top: -5px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .envelope, .star {
+    animation: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ANIMACIONES DE FONDO -->
+
+<div id="stars"></div>
+<div class="moon"></div>
+<div id="snow"></div>
+<div id="roses"></div>
+<canvas id="fireworks"></canvas>
+
+<!-- AUDIO OCULTO -->
+
+<audio
+  id="song"
+  preload="metadata"
+>
+  <source
+    src="./Snow%20Flower%20%28feat.%20Peakboy%29%20by%20V.mp3"
+    type="audio/mpeg"
+  >
+</audio>
+
+<!-- PANTALLA DE BIENVENIDA -->
+
+<div class="intro" id="intro">
+
+  <section class="intro-card">
+
+    <div class="envelope">❄️</div>
+
+    <h2 class="intro-title">
+      Para Jimena
+    </h2>
+
+    <p class="intro-text">
+      Esta sorpresa es para ti.
+    </p>
+
+    <button
+      class="btn-purple"
+      id="openSurprise"
+      type="button">
+      Abrir mi sorpresa 💜
+    </button>
+
+  </section>
+
+</div>
+
+<!-- PAGINA PRINCIPAL -->
+
+<main class="container">
+
+<section class="card">
+
+  <span class="small-title">
+    ❄️ UNA SORPRESA PARA TI
+  </span>
+
+  <div class="ornament">
+    ✦ ❄ ✦
+  </div>
+
+  <!-- MENSAJE ROMANTICO -->
+
+  <div class="message">
+
+    Dicen que no existen
+    dos copos de nieve iguales.
+
+    <br><br>
+
+    Y entre millones de personas,
+    <strong>
+      tampoco existe nadie como tú.
+    </strong>
+
+    <br><br>
+
+    Si pudiera guardar un momento
+    para siempre, elegiría uno
+    en el que estuvieras conmigo.
+
+    <br><br>
+
+    Porque sin importar
+    cuántos inviernos lleguen,
+    siempre quisiera compartirlos contigo.
+
+  </div>
+
+  <div class="ornament">
+    ❄ ✦ ❄
+  </div>
+
+  <!-- REPRODUCTOR SORPRESA -->
+
+  <section class="music-card">
+
+    <!-- TOCADISCOS -->
+
+    <div
+      class="turntable"
+      id="turntable">
+
+      <div class="vinyl">
+        <div class="vinyl-label">
+          ♫
+        </div>
+      </div>
+
+      <div class="tonearm"></div>
+
+    </div>
+
+    <!-- GIF DE TOCADISCOS -->
+
+    <div class="gif-panel" id="gifPanel" hidden>
+
+      <img
+        src="https://media.giphy.com/media/l4hLWkXgmia7WMNeo/giphy.gif"
+        alt="Tocadiscos girando"
+        loading="lazy"
+        onerror="this.parentElement.hidden=true"
+      >
+
+    </div>
+
+    <!-- BOTON DE MUSICA -->
+
+    <div class="player-controls">
+
+      <button
+        class="btn-purple"
+        id="musicButton"
+        type="button">
+        ▶ Reproducir canción
+      </button>
+
+      <!-- PROGRESO OCULTO HASTA REPRODUCIR -->
+
+      <div id="progressContainer" hidden>
+
+        <input
+          class="progress-bar"
+          id="seekBar"
+          type="range"
+          min="0"
+          max="100"
+          step="0.1"
+          value="0"
+          aria-label="Posición de la canción"
+        >
+
+        <div class="time-row">
+          <span id="currentTime">0:00</span>
+          <span id="duration">0:00</span>
+        </div>
+
+      </div>
+
+      <p id="musicStatus" role="status"></p>
+
+    </div>
+
+  </section>
+
+  <!-- EFECTOS -->
+
+  <div class="actions">
+
+    <button
+      class="btn-purple"
+      id="moreSnow"
+      type="button">
+      ❄️ Más nieve
+    </button>
+
+    <button
+      class="btn-outline"
+      id="moreRoses"
+      type="button">
+      🌹 Lluvia de rosas
+    </button>
+
+    <button
+      class="btn-outline"
+      id="fireworksButton"
+      type="button">
+      ✨ Fuegos artificiales
+    </button>
+
+  </div>
+
+  <!-- IMAGEN INFERIOR -->
+
+  <figure class="cover-section">
+
+    <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBqDjuOpptQByTSRfL6QDN01ODhH74hOc1jc75AOAE-g&amp;s=10"
+      alt="Ilustración invernal"
+      loading="lazy"
+    >
+
+  </figure>
+
+</section>
+
+</main>
+
+<script>
+'use strict';
+
+// ============================
+// ESTRELLAS
+// ============================
+
+const stars = document.getElementById('stars');
+
+for (let i = 0; i < 95; i++) {
+
+  const star = document.createElement('span');
+
+  star.className = 'star';
+  star.style.left = Math.random() * 100 + '%';
+  star.style.top = Math.random() * 100 + '%';
+  star.style.animationDelay = Math.random() * 4 + 's';
+
+  stars.appendChild(star);
+}
+
+// ============================
+// NIEVE Y ROSAS
+// ============================
+
+const snow = document.getElementById('snow');
+const roses = document.getElementById('roses');
+
+function createFalling(kind, temporary = false) {
+
+  const container =
+    kind === 'snowflake' ? snow : roses;
+
+  const maxCount =
+    kind === 'snowflake' ? 165 : 70;
+
+  if (container.childElementCount >= maxCount) return;
+
+  const element = document.createElement('span');
+  element.className = kind;
+
+  if (kind === 'snowflake') {
+
+    const symbols = ['❄', '❅', '❆', '•'];
+
+    element.textContent =
+      symbols[Math.floor(Math.random() * symbols.length)];
+
+    element.style.fontSize =
+      (9 + Math.random() * 17) + 'px';
+
+    element.style.opacity =
+      .4 + Math.random() * .6;
+
+  } else {
+
+    element.textContent = '🌹';
+
+    element.style.fontSize =
+      (17 + Math.random() * 19) + 'px';
+
+  }
+
+  const duration =
+    kind === 'snowflake'
+      ? 7 + Math.random() * 10
+      : 9 + Math.random() * 8;
+
+  element.style.left = Math.random() * 100 + '%';
+  element.style.animationDuration = duration + 's';
+
+  element.style.setProperty(
+    '--drift',
+    (Math.random() * 210 - 105) + 'px'
+  );
+
+  if (temporary) {
+
+    element.style.animationIterationCount = '1';
+
+    element.addEventListener(
+      'animationend',
+      () => element.remove(),
+      { once: true }
+    );
+
+  } else {
+
+    element.style.animationDelay =
+      -(Math.random() * duration) + 's';
+
+  }
+
+  container.appendChild(element);
+}
+
+// NIEVE CONSTANTE
+
+for (let i = 0; i < 85; i++) {
+  createFalling('snowflake');
+}
+
+// ROSAS CONSTANTES
+
+for (let i = 0; i < 22; i++) {
+  createFalling('rose');
+}
+
+// BOTON MAS NIEVE
+
+document.getElementById('moreSnow')
+  .addEventListener('click', () => {
+
+    for (let i = 0; i < 35; i++) {
+
+      setTimeout(
+        () => createFalling('snowflake', true),
+        i * 45
+      );
+
+    }
+
+  });
+
+// BOTON MAS ROSAS
+
+document.getElementById('moreRoses')
+  .addEventListener('click', () => {
+
+    for (let i = 0; i < 30; i++) {
+
+      setTimeout(
+        () => createFalling('rose', true),
+        i * 90
+      );
+
+    }
+
+  });
+
+// ============================
+// FUEGOS ARTIFICIALES
+// ============================
+
+const canvas = document.getElementById('fireworks');
+const ctx = canvas.getContext('2d');
+
+let width = 0;
+let height = 0;
+let dpr = 1;
+
+let particles = [];
+
+const colors = [
+  '#b488ff',
+  '#e1d0ff',
+  '#ffffff',
+  '#a9cfff',
+  '#ffdab0'
+];
+
+function resizeCanvas() {
+
+  dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  width = window.innerWidth;
+  height = window.innerHeight;
+
+  canvas.width = Math.round(width * dpr);
+  canvas.height = Math.round(height * dpr);
+
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+function explode(x, y) {
+
+  const color =
+    colors[Math.floor(Math.random() * colors.length)];
+
+  for (let i = 0; i < 85; i++) {
+
+    const angle = Math.random() * Math.PI * 2;
+    const speed = 1 + Math.random() * 4;
+
+    particles.push({
+      x,
+      y,
+      vx: Math.cos(angle) * speed,
+      vy: Math.sin(angle) * speed,
+      life: 1,
+      color,
+      size: 1 + Math.random() * 2
+    });
+
+  }
+}
+
+function animateFireworks() {
+
+  ctx.clearRect(0, 0, width, height);
+
+  particles = particles.filter(p => p.life > 0);
+
+  for (const p of particles) {
+
+    p.x += p.vx;
+    p.y += p.vy;
+    p.vy += .04;
+    p.life -= .017;
+
+    ctx.globalAlpha = Math.max(0, p.life);
+    ctx.fillStyle = p.color;
+
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fill();
+
+  }
+
+  ctx.globalAlpha = 1;
+
+  requestAnimationFrame(animateFireworks);
+}
+
+animateFireworks();
+
+function launchFireworks() {
+
+  for (let i = 0; i < 7; i++) {
+
+    setTimeout(() => {
+
+      explode(
+        width * (.15 + Math.random() * .7),
+        height * (.1 + Math.random() * .5)
+      );
+
+    }, i * 280);
+
+  }
+}
+
+document.getElementById('fireworksButton')
+  .addEventListener('click', launchFireworks);
+
+// ============================
+// REPRODUCTOR DE MUSICA
+// ============================
+
+const song = document.getElementById('song');
+
+const musicButton =
+  document.getElementById('musicButton');
+
+const musicStatus =
+  document.getElementById('musicStatus');
+
+const turntable =
+  document.getElementById('turntable');
+
+const gifPanel =
+  document.getElementById('gifPanel');
+
+const seekBar =
+  document.getElementById('seekBar');
+
+const progressContainer =
+  document.getElementById('progressContainer');
+
+const currentTimeLabel =
+  document.getElementById('currentTime');
+
+const durationLabel =
+  document.getElementById('duration');
+
+// VOLUMEN
+
+song.volume = 0.75;
+
+// FORMATO DE TIEMPO
+
+function formatTime(seconds) {
+
+  if (!Number.isFinite(seconds)) {
+    return '0:00';
+  }
+
+  const minutes = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+
+  return minutes + ':' +
+    String(secs).padStart(2, '0');
+}
+
+// REPRODUCIR
+
+function startMusic() {
+
+  musicStatus.textContent = 'Cargando...';
+
+  const promise = song.play();
+
+  if (promise && typeof promise.catch === 'function') {
+
+    promise.catch(error => {
+
+      console.warn(error);
+
+      musicStatus.textContent =
+        'No se pudo iniciar la canción. Intenta de nuevo.';
+
+    });
+
+  }
+}
+
+// PAUSAR
+
+function pauseMusic() {
+  song.pause();
+}
+
+// BOTON PRINCIPAL
+
+musicButton.addEventListener('click', () => {
+
+  if (song.paused) {
+    startMusic();
+  } else {
+    pauseMusic();
+  }
+
+});
+
+// CUANDO EMPIEZA LA MUSICA
+
+song.addEventListener('playing', () => {
+
+  turntable.classList.add('playing');
+
+  musicButton.textContent = '⏸ Pausar canción';
+
+  musicStatus.textContent = '';
+
+  gifPanel.hidden = false;
+
+  progressContainer.hidden = false;
+
+});
+
+// AL PAUSAR
+
+song.addEventListener('pause', () => {
+
+  turntable.classList.remove('playing');
+
+  musicButton.textContent = '▶ Reproducir canción';
+
+  gifPanel.hidden = true;
+
+});
+
+// AL TERMINAR
+
+song.addEventListener('ended', () => {
+
+  turntable.classList.remove('playing');
+
+  musicButton.textContent =
+    '▶ Reproducir de nuevo';
+
+  gifPanel.hidden = true;
+
+});
+
+// DURACION
+
+song.addEventListener('loadedmetadata', () => {
+
+  durationLabel.textContent =
+    formatTime(song.duration);
+
+});
+
+// ACTUALIZAR PROGRESO
+
+song.addEventListener('timeupdate', () => {
+
+  currentTimeLabel.textContent =
+    formatTime(song.currentTime);
+
+  if (Number.isFinite(song.duration) && song.duration > 0) {
+
+    seekBar.value =
+      (song.currentTime / song.duration) * 100;
+
+  }
+});
+
+// ADELANTAR O RETROCEDER
+
+seekBar.addEventListener('input', () => {
+
+  if (Number.isFinite(song.duration) && song.duration > 0) {
+
+    song.currentTime =
+      (Number(seekBar.value) / 100) *
+      song.duration;
+
+  }
+});
+
+// ERRORES
+
+song.addEventListener('error', () => {
+
+  musicStatus.textContent =
+    'No se pudo cargar el archivo de audio.';
+
+  turntable.classList.remove('playing');
+  gifPanel.hidden = true;
+
+});
+
+// ============================
+// ABRIR SORPRESA
+// ============================
+
+document.getElementById('openSurprise')
+  .addEventListener('click', () => {
+
+    const intro = document.getElementById('intro');
+
+    intro.classList.add('hidden');
+
+    setTimeout(() => intro.remove(), 850);
+
+    // Fuegos artificiales
+    launchFireworks();
+
+    // Rosas cayendo
+    for (let i = 0; i < 25; i++) {
+
+      setTimeout(
+        () => createFalling('rose', true),
+        i * 110
+      );
+
+    }
+
+    // La musica NO inicia automaticamente.
+    // Jimena debe presionar Reproducir cancion.
+
+  });
+
+</script>
+</body>
+</html>
